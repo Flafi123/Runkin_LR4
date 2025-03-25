@@ -49,7 +49,7 @@ void inputP() {
   } while (P <= 0 || P >= Q);
 }
 
-void inputQ() {}
+void inputQ() { EnterNumber(Q, "Enter natural number Q: "); }
 void calculateQuotient() {
   // разрабатывается Васильевым В. - ветка branch_fun_3
 }
