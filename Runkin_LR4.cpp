@@ -34,6 +34,9 @@ void EnterNumber(int &varLink, const string &label) {
 
   varLink = stoi(raw_input); // Преобразуем строку в целое число
 }
+// Функция для ввода числа
+// глобальные переменные - стороны прямоугольника
+
 void calculateRemainder() {
   // разрабатывается Петровым П. - ветка branch_fun_2
 }
