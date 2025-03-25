@@ -59,7 +59,12 @@ void inputQ() {
   // ИЗМЕНЕНИЯ - Ветка branch_fun_2
 }
 void calculateQuotient() {
-  // разрабатывается Васильевым В. - ветка branch_fun_3
+  if (P > 0) {
+    int quotient = Q / P;
+    cout << "Integer part of Q divided by P: " << quotient << endl;
+  } else {
+    cout << "Error: P should be greater than 0.\n";
+  }
 }
 // структра меню
 struct MenuItem {
