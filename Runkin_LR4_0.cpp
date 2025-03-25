@@ -5,28 +5,17 @@
 
 using namespace std;
 
-bool isValidNumber(const string &input) {
-  if (input.empty())
-    return false; // Пустая строка не является корректным числом
-  for (char c : input) {
-    if (!isdigit(c) && c != '-')
-      return false; // Разрешаем отрицательные числа
-  }
-  return true;
-}
-
 // Функция для ввода числа
 // глобальные переменные - стороны прямоугольника
-int sidel, side2;
+int Q, P;
 // функция ввода данных
-function<void()> EnterNumber(int &varLink, string label) {
-  // разрабатывается Сидоровым С. - ветка branch_fun_1
-  return 0;
-}
 
 void calculateRemainder() {
   // разрабатывается Петровым П. - ветка branch_fun_2
 }
+void inputP() {}
+
+void inputQ() {}
 void calculateQuotient() {
   // разрабатывается Васильевым В. - ветка branch_fun_3
 }
@@ -38,10 +27,8 @@ struct MenuItem {
 string title;
 int main() {
   map<int, MenuItem> menu = {
-      {1, {"Enter integer Q", EnterNumber(sidel, "Enter integer Q")}},
-      {2,
-       {"Enter natural number P (less than Q)",
-        EnterNumber(side2, "Enter natural number P (less than Q)")}},
+      {1, {"Enter integer Q", inputP}},
+      {2, {"Enter natural number P (less than Q)", inputQ}},
       {3, {"Calculate remainder of Q divided by P", calculateRemainder}},
       {4, {"Calculate integer part of Q divided by P", calculateQuotient}},
   };
