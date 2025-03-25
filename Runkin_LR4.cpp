@@ -24,10 +24,10 @@ function<void()> EnterNumber(int &varLink, string label) {
   return 0;
 }
 
-void CalcArea() {
+void calculateRemainder() {
   // разрабатывается Петровым П. - ветка branch_fun_2
 }
-void CalcPerim() {
+void calculateQuotient() {
   // разрабатывается Васильевым В. - ветка branch_fun_3
 }
 // структра меню
@@ -38,12 +38,12 @@ struct MenuItem {
 string title;
 int main() {
   map<int, MenuItem> menu = {
-      {1,
-       {"Input 1st side of rectangle", EnterNumber(sidel, "Input 1st side")}},
+      {1, {"Enter integer Q", EnterNumber(sidel, "Enter integer Q")}},
       {2,
-       {"Input 2nd side of rectangle", EnterNumber(side2, "Input 2nd side")}},
-      {3, {"Calculate of Area", CalcArea}},
-      {4, {"Calculate of Perimeter", CalcPerim}},
+       {"Enter natural number P (less than Q)",
+        EnterNumber(side2, "Enter natural number P (less than Q)")}},
+      {3, {"Calculate remainder of Q divided by P", calculateRemainder}},
+      {4, {"Calculate integer part of Q divided by P", calculateQuotient}},
   };
   int choice = 0;
   //
