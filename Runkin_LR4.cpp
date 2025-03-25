@@ -45,11 +45,7 @@ void calculateRemainder() {
     cout << "Error: P should be greater than 0.\n";
   }
 }
-<<<<<<< HEAD
-
-void inputP() {}
-
-void inputQ(){} == == == = void inputP() {
+void inputP() {
   do {
     EnterNumber(P, "Enter natural number P (less than Q): ");
     if (P <= 0 || P >= Q) {
@@ -62,7 +58,6 @@ void inputQ() {
   EnterNumber(Q, "Enter natural number Q: ");
   // ИЗМЕНЕНИЯ - Ветка branch_fun_2
 }
->>>>>>> 21b144ec070d5de9e6ca291282ba5941332d7f6c
 void calculateQuotient() {
   // разрабатывается Васильевым В. - ветка branch_fun_3
 }
