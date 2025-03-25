@@ -5,27 +5,58 @@
 
 using namespace std;
 
+// Функция для ввода числа
+// глобальные переменные - стороны прямоугольника
+int Q, P;
+// функция ввода данных
 bool isValidNumber(const string &input) {
   if (input.empty())
     return false; // Пустая строка не является корректным числом
   for (char c : input) {
-    if (!isdigit(c) && c != '-')
-      return false; // Разрешаем отрицательные числа
+    if (!isdigit(c))
+      return false; // Разрешаем только положительные числа
   }
   return true;
 }
 
 // Функция для ввода числа
-// глобальные переменные - стороны прямоугольника
-int sidel, side2;
-// функция ввода данных
-function<void()> EnterNumber(int &varLink, string label) {
-  // разрабатывается Сидоровым С. - ветка branch_fun_1
-  return 0;
+void EnterNumber(int &varLink, const string &label) {
+  string raw_input;
+  cout << label;
+  getline(cin, raw_input);
+
+  // Цикл для повторного запроса числа, пока не будет введено корректное
+  // значение
+  while (!isValidNumber(raw_input)) {
+    cout << "Invalid input. " << label;
+    getline(cin, raw_input);
+  }
+
+  varLink = stoi(raw_input); // Преобразуем строку в целое число
 }
+// Функция для ввода числа
+// глобальные переменные - стороны прямоугольника
 
 void calculateRemainder() {
-  // разрабатывается Петровым П. - ветка branch_fun_2
+  if (P > 0) {
+    int remainder = Q % P;
+    cout << "Remainder of Q divided by P: " << remainder << endl;
+  } else {
+    cout << "Error: P should be greater than 0.\n";
+  }
+}
+void inputP() {
+  do {
+    EnterNumber(P, "Enter natural number P (less than Q): ");
+    if (P <= 0 || P >= Q) {
+      cout << "Error: P should be a natural number and less than Q.\n";
+    }
+  } while (P <= 0 || P >= Q);
+}
+
+void inputQ() {
+  EnterNumber(Q, "Enter natural number Q: ");
+  // ИЗМЕНЕНИЯ - Ветка branch_fun_2
 }
 void calculateQuotient() {
   // разрабатывается Васильевым В. - ветка branch_fun_3
@@ -38,10 +69,8 @@ struct MenuItem {
 string title;
 int main() {
   map<int, MenuItem> menu = {
-      {1, {"Enter integer Q", EnterNumber(sidel, "Enter integer Q")}},
-      {2,
-       {"Enter natural number P (less than Q)",
-        EnterNumber(side2, "Enter natural number P (less than Q)")}},
+      {1, {"Enter integer Q", inputP}},
+      {2, {"Enter natural number P (less than Q)", inputQ}},
       {3, {"Calculate remainder of Q divided by P", calculateRemainder}},
       {4, {"Calculate integer part of Q divided by P", calculateQuotient}},
   };
