@@ -9,11 +9,42 @@ using namespace std;
 // глобальные переменные - стороны прямоугольника
 int Q, P;
 // функция ввода данных
+bool isValidNumber(const string &input) {
+  if (input.empty())
+    return false; // Пустая строка не является корректным числом
+  for (char c : input) {
+    if (!isdigit(c))
+      return false; // Разрешаем только положительные числа
+  }
+  return true;
+}
 
+// Функция для ввода числа
+void EnterNumber(int &varLink, const string &label) {
+  string raw_input;
+  cout << label;
+  getline(cin, raw_input);
+
+  // Цикл для повторного запроса числа, пока не будет введено корректное
+  // значение
+  while (!isValidNumber(raw_input)) {
+    cout << "Invalid input. " << label;
+    getline(cin, raw_input);
+  }
+
+  varLink = stoi(raw_input); // Преобразуем строку в целое число
+}
 void calculateRemainder() {
   // разрабатывается Петровым П. - ветка branch_fun_2
 }
-void inputP() {}
+void inputP() {
+  do {
+    EnterNumber(P, "Enter natural number P (less than Q): ");
+    if (P <= 0 || P >= Q) {
+      cout << "Error: P should be a natural number and less than Q.\n";
+    }
+  } while (P <= 0 || P >= Q);
+}
 
 void inputQ() {}
 void calculateQuotient() {
